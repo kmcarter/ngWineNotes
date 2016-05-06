@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>All Wines</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="wine in wines">
+      <td>{{ wine.name }}</td>
+      <td>{{ wine.year }}</td>
+      <td>{{ wine.varietal }}</td>
+      <td>{{ wine.vinyard }}</td>
+    </tr>
+  </tbody>
+</table>

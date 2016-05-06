@@ -1,8 +1,9 @@
 (function() {
   "use strict";
 
-  angular.module("ngWineNotes").controller("winesCtrl", function($scope) {
-    $scope.name = "Joe";
-    $scope.message = "Hi, ";
-  });
+  angular
+    .module("ngWineNotes.winesCtrl", [])
+    .controller("WinesListCtrl", function($scope, $stateParams, Wine) {
+      $scope.wines = Wine.query();
+    });
 })();
