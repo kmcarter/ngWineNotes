@@ -8,14 +8,23 @@
     <link rel="author" href="humans.txt">
   </head>
   <body>
+
     <div class="container">
-      <div ui-view></div>
+      <div ng-hide="auth.isAuthed()">
+        <input type="text" ng-model="auth.email" placeholder="Email Address"><br/>
+        <input type="password" ng-model="auth.password" placeholder="Password"><br/>
+      </div>
+
+      <button ng-click="auth.login()" ng-hide="auth.isAuthed()">Login</button>
+      <button ng-click="auth.logout()" ng-show="auth.isAuthed()">Logout</button>
+      <div ng-show="auth.isAuthed()" ui-view></div>
     </div>
 
     <script src="node_modules/angular/angular.js"></script>
     <script src="scripts/app.js"></script>
     <script src="components/wines.ctrl.js"></script>
     <script src="scripts/services.js"></script>
+    <script src="scripts/auth.js"></script>
     <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="node_modules/angular-resource/angular-resource.js"></script>
   </body>
